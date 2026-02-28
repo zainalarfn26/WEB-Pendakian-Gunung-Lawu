@@ -12,6 +12,11 @@ Route::get('/pendaftaran', [PendakiController::class, 'create'])->name('pendaki.
 Route::post('/pendaftaran', [PendakiController::class, 'store'])->name('pendaki.store');
 Route::get('/pendaki', [PendakiController::class, 'index'])->name('pendaki.index');
 
+// Dashboard route (redirect to admin dashboard after login)
+Route::get('/dashboard', function () {
+    return redirect()->route('admin.dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 // Admin routes (protected by auth middleware)
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');

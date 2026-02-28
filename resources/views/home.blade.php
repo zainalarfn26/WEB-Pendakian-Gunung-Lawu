@@ -40,8 +40,6 @@
                     <a href="{{ route('pendaki.create') }}" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition">Daftar Sekarang</a>
                     @auth
                         <a href="{{ route('admin.dashboard') }}" class="text-gray-700 hover:text-purple-600 transition">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-gray-700 hover:text-purple-600 transition">Login Admin</a>
                     @endauth
                 </div>
             </div>
